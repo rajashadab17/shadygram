@@ -45,7 +45,7 @@ class ApiClient {
   async createVideo(videoData: VideoFormData) {
     return this.fetch<IVideo>("/videos", {
       method: "POST",
-      body: { ...videoData, likes: 0 }, // Ensure likes is initialized as 0
+      body: { ...videoData, likes: 0 }, 
     });
   }
 
@@ -78,15 +78,6 @@ class ApiClient {
       } else {
         return new Error('Failed to dislike video')
       }
-      // const response = await this.fetch<{ success: boolean; likes: number }>(`/videos/${id}/dislike`, {
-      //   method: "POST",
-      // });
-      // console.log("Backend reponse", response)
-      // if (!isNaN(response.likes)) {
-      //   return response.likes
-      // } else {
-      //   return new Error('Failed to dislike video')
-      // }
 
     } catch (error) {
       return error
