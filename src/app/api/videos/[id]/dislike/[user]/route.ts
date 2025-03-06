@@ -13,8 +13,7 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
         if (!video) {
             return NextResponse.json({ error: "Video not found" }, { status: 404 });
         }
-
-        // decrease likes by 1
+        
         console.log(user)
         video.liked = video.liked.filter((like:any) => like.likedBy !== user);
         video.likes -= 1;
