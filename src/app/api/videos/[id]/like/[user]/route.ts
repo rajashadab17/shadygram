@@ -14,8 +14,6 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
             return NextResponse.json({ error: "Video not found" }, { status: 404 });
         }
 
-        // Increase likes by 1
-        // video.likes += 1;
         video.liked.push({ likedBy: user });
             video.likes += 1;
         
